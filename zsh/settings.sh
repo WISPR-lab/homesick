@@ -13,3 +13,5 @@ setopt interactivecomments
 # Use vim style line editing in zsh
 # - Undo
 bindkey -a 'u' undo
+
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
