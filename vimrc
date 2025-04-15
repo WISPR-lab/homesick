@@ -343,10 +343,25 @@ nnoremap <C-w>_ :split <CR>
 " => close
 nnoremap <C-w>w :close <CR>
 
-" Move lines up and down (HACK: cannot make the macOS built-in terminal send
-" Alt-j/k properly so use special symbols instead to avoid the meta key problem)
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        " macOS
+        if $TERM == 'xterm-ghostty'
+            " ghostty on mac
+            nnoremap ê :m .+1<CR>==
+            nnoremap ë :m .-2<CR>==
+        else
+            " mac built-in terminal
+            " Move lines up and down (HACK: cannot make the macOS built-in terminal send
+            " Alt-j/k properly so use special symbols instead to avoid the meta key problem)
+            nnoremap ∆ :m .+1<CR>==
+            nnoremap ˚ :m .-2<CR>==
+        endif
+    else
+        " linux
+    endif
+endif
 
 " pkg:: ALE
 nnoremap <C-f> :ALEFix <CR>
