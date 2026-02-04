@@ -518,7 +518,7 @@ let g:ale_linters={
 \   'cpp':    ['cc', 'clangd', 'clangtidy', 'clangcheck'],
 \   'cuda':   ['clangd'],
 \   'go':     ['gofmt', 'golint', 'gopls', 'govet', 'gobuild', 'gotype'],
-\   'python': ['pylint', 'mypy', 'pyre'],
+\   'python': ['ruff', 'pylint', 'pyrefly'],
 \   'rust':   ['analyzer', 'rustc', 'cargo'],
 \   'swift':  ['sourcekitlsp', 'apple-swift-format'],
 \   'verilog':['verilator'],
